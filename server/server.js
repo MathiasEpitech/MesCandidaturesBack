@@ -2,6 +2,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const Candidature = require("./models/Candidature");
+const dotenv = require('dotenv'); // Importez le module dotenv
+
+dotenv.config(); // Chargez les variables d'environnement à partir du fichier .env
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -10,9 +13,9 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Connexion à la base de données MongoDB (assurez-vous de remplacer l'URL par la vôtre)
+// Connexion à la base de données MongoDB en utilisant la variable d'environnement MONGODB_URI
 mongoose.connect(
-  "mongodb+srv://mathiasfernandes:V9CF6ufllz8Fveor@mescandidatures.6frwrkh.mongodb.net/?retryWrites=true&w=majority",
+  process.env.MONGODB_URI, // Utilisez la variable d'environnement pour l'URL de connexion
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
