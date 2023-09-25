@@ -15,7 +15,7 @@ app.use(express.json());
 
 // Connexion à la base de données MongoDB en utilisant la variable d'environnement MONGODB_URI
 mongoose.connect(
-  process.env.MONGODB_URI, // Utilisez la variable d'environnement pour l'URL de connexion
+  process.env.MONGO_URL, // Utilisez la variable d'environnement pour l'URL de connexion
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
