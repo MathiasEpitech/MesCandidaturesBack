@@ -32,6 +32,10 @@ db.once("open", () => {
   console.log("Connecté à la base de données MongoDB");
 });
 
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
 app.post("/api/candidatures", async (req, res) => {
   try {
     // Récupérez les données du formulaire depuis la requête
